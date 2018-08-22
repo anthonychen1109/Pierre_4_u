@@ -69,3 +69,4 @@ books.forEach(book => {
   const myBook = newBook.render()
   mainDiv.append(myBook)
 })
+}
