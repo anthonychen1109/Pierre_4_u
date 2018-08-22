@@ -56,17 +56,28 @@ function init(){
   fetchBooks()
 }
 
-// FETCH
+// FETCH BOOKS
 function fetchBooks() {
   const books = Adapter.getBooksData()
-    .then(books => renderBooks(books))
+    .then(books => renderBooks)
 }
 
+
 function renderBooks(books) {
-const mainDiv = document.getElementById("main")
-books.forEach(book => {
-  const newBook = new Book(book.title, book.userId)
-  const myBook = newBook.render()
-  mainDiv.append(myBook)
-})
+  const mainDiv = document.getElementById("main")
+
+  books.forEach(book => {
+    const newTitle = book.attributes.title
+    const userId = book.relationships.user.data.id
+
+    const newBook = new Book(newTitle, userId)
+
+    const myBook = newBook.render()
+
+    const title = document.getElementById("h1")
+
+    myBook.dataset.id = book.id
+
+    mainDiv.append(myBook)
+  })
 }
