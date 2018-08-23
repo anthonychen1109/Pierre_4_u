@@ -9,10 +9,10 @@ class UImage {
  //   console.log('a uimage')
  // }
 
- static renderUImage(title, imgUrl) {
-   console.log("from render", title, imgUrl)
+ static renderUImage(title, imgUrl, liClass) {
+   let cat = liClass || ""
    const sideBarUl = document.getElementById("side-bar-ul")
-   // sideBarUl.innerHTML = ""
+   const divRender = document.querySelector(`.${cat}`)
    const imageDiv = document.createElement("div")
    const imageTitle = document.createElement("h2")
    const image = document.createElement("img")
@@ -27,13 +27,14 @@ class UImage {
      canvas1.drawImage(image, 0, 0, 650, 691)
    })
    imageDiv.append(imageTitle, image)
-   sideBarUl.append(imageDiv)
+   // sideBarUl.append(imageDiv)
+   divRender.append(imageDiv)
    // return imageDiv
   }
 
-// UImage {title: "wildebeast", imgUrl: "https://us.123rf.com/450wm/jemastock/jemastock1707…can-wildlife-animal-vector-illustration.jpg?ver=6"}
-  static renderFromImageData(imgObj) {
-    UImage.renderUImage(imgObj.title, imgObj.imgUrl)
+  static renderFromImageData(imgObj, type) {
+    console.log(type);
+    UImage.renderUImage(imgObj.title, imgObj.imgUrl, type)
   }
 
 }
