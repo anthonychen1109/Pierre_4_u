@@ -59,25 +59,25 @@ function init(){
 // FETCH BOOKS
 function fetchBooks() {
   const books = Adapter.getBooksData()
-    .then(books => renderBooks)
+    .then(books => renderBooks(books))
 }
 
-
+// RENDER BOOKS ONTO PAGE
 function renderBooks(books) {
-  const mainDiv = document.getElementById("main")
+  // Grab main div
+  const mainDiv = document.getElementById("side-bar")
 
+  // iterate through books promise and create new book instances
   books.forEach(book => {
     const newTitle = book.attributes.title
     const userId = book.relationships.user.data.id
 
+    // instantiate new book object
     const newBook = new Book(newTitle, userId)
-
     const myBook = newBook.render()
-
-    const title = document.getElementById("h1")
-
     myBook.dataset.id = book.id
 
+    // append book instances to page
     mainDiv.append(myBook)
   })
 }
