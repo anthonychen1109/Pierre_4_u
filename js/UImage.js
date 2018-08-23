@@ -9,15 +9,16 @@ class UImage {
  //   console.log('a uimage')
  // }
 
- renderUImage(title, imgUrl) {
+ static renderUImage(title, imgUrl) {
+   console.log("from render", title, imgUrl)
    const sideBarUl = document.getElementById("side-bar-ul")
-   sideBarUl.innerHTML = ""
+   // sideBarUl.innerHTML = ""
    const imageDiv = document.createElement("div")
    const imageTitle = document.createElement("h2")
    const image = document.createElement("img")
    image.classList.add("thumbnail")
-   imageTitle.innerText = this.title
-   image.src = this.imgUrl
+   imageTitle.innerText = title
+   image.src = imgUrl
    image.classList.add("quack")
    image.addEventListener("click", (e) => {
      const canvas = document.querySelector("canvas")
@@ -27,11 +28,12 @@ class UImage {
    })
    imageDiv.append(imageTitle, image)
    sideBarUl.append(imageDiv)
-   return imageDiv
+   // return imageDiv
   }
 
-  renderCategories() {
-    console.log('test');
+// UImage {title: "wildebeast", imgUrl: "https://us.123rf.com/450wm/jemastock/jemastock1707…can-wildlife-animal-vector-illustration.jpg?ver=6"}
+  static renderFromImageData(imgObj) {
+    UImage.renderUImage(imgObj.title, imgObj.imgUrl)
   }
 
 }

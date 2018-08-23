@@ -142,13 +142,14 @@ function renderBooks(books) {
 function renderCategories() {
   const allLi = document.getElementById("categories").querySelectorAll("li")
   allLi.forEach(li => li.addEventListener("click", () => {
+    const sideBarUl = document.getElementById("side-bar-ul")
+    sideBarUl.innerHTML = ""
     const type = li.id
-    Adapter.getUImagesData().then(categories => {
-      categories.forEach(category => {
-        // console.log(category);
-        const currentCategory = new UImage(category.title, category.imgURL)
-        if (type == category.category) {
-          currentCategory.renderUImage()
+    Adapter.getUImagesData().then(uImages => {
+      uImages.forEach(uImage => {
+        const newUImage = new UImage(uImage.title, uImage.imgURL)
+        if (type == uImage.category) {
+          UImage.renderFromImageData(newUImage)
         }
       })
     })
