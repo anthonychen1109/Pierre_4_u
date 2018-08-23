@@ -43,5 +43,10 @@
 
 .thumbnail {
   max-width: 100px; }
+  .thumbnail:hover {
+    cursor: pointer; }
+
+.canvasDiv img {
+  width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

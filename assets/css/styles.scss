@@ -62,4 +62,13 @@ $padding: 10px;
 
 .thumbnail {
   max-width: 100px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.canvasDiv {
+  img {
+    width: 100%;
+  }
 }

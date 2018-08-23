@@ -29,6 +29,7 @@ class Book {
     return bookDiv
   }
 
+  // render book thumbnails under titles
   renderBookImages(id) {
     Adapter.getBookData(id)
       .then(data => {
