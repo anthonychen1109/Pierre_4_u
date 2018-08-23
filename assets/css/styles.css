@@ -11,7 +11,8 @@
     max-height: 200px; }
 
 .main {
-  display: flex; }
+  display: flex;
+  padding-bottom: 40px; }
   .main .main-left {
     border: 1px solid black;
     display: flex;
@@ -27,11 +28,14 @@
 
 .canvas {
   font-family: Art_Studio; }
+  .canvas h1 {
+    text-align: center; }
 
 .title {
   font-family: DJB; }
 
 .bookTitle {
+  font-family: DJB;
   cursor: pointer; }
   .bookTitle:hover {
     background-color: yellow;

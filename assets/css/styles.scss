@@ -23,6 +23,7 @@ $padding: 10px;
 
 .main {
   display: flex;
+  padding-bottom: 40px;
   .main-left {
     border: 1px solid black;
     display: flex;
@@ -41,6 +42,9 @@ $padding: 10px;
 
 .canvas {
   font-family: Art_Studio;
+  h1 {
+    text-align: center;
+  }
 }
 
 .title {
@@ -48,6 +52,7 @@ $padding: 10px;
 }
 
 .bookTitle{
+  font-family: DJB;
   cursor: pointer;
   &:hover {
     background-color: yellow;
