@@ -30,7 +30,7 @@ class Adapter{
   }
 
   static async getUImagesData(){
-    const response = await fetch("http://localhost:3000/u_images")
+    const response = await fetch("http://localhost:3000/c_images")
     const data = response.json()
     return data
   }
