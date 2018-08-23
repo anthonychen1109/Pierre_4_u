@@ -2,24 +2,24 @@ document.addEventListener('DOMContentLoaded', init)
 
 function init(){
 
-  context = document.getElementById('canvas').getContext("2d");
-
-  $('#canvas').mousedown(function(e){
-    var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop;
-
-    paint = true;
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-    redraw();
-  });
-
-  $('#canvas').mouseup(function(e){
-    paint = false;
-  });
-
-  $('#canvas').mouseleave(function(e){
-    paint = false;
-  });
+  // context = document.getElementById('canvas').getContext("2d");
+  //
+  // $('#canvas').mousedown(function(e){
+  //   var mouseX = e.pageX - this.offsetLeft;
+  //   var mouseY = e.pageY - this.offsetTop;
+  //
+  //   paint = true;
+  //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+  //   redraw();
+  // });
+  //
+  // $('#canvas').mouseup(function(e){
+  //   paint = false;
+  // });
+  //
+  // $('#canvas').mouseleave(function(e){
+  //   paint = false;
+  // });
 
   var clickX = new Array();
   var clickY = new Array();
