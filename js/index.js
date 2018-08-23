@@ -2,6 +2,25 @@ document.addEventListener('DOMContentLoaded', init)
 
 function init(){
 
+  context = document.getElementById('canvas').getContext("2d");
+
+  $('#canvas').mousedown(function(e){
+    var mouseX = e.pageX - this.offsetLeft;
+    var mouseY = e.pageY - this.offsetTop;
+
+    paint = true;
+    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+    redraw();
+  });
+
+  $('#canvas').mouseup(function(e){
+    paint = false;
+  });
+
+  $('#canvas').mouseleave(function(e){
+    paint = false;
+  });
+
   var clickX = new Array();
   var clickY = new Array();
   var clickDrag = new Array();
@@ -85,7 +104,7 @@ function init(){
   });
 
 
-  // fetchBooks()
+  fetchBooks()
 }
 
 function putImage(){
@@ -96,17 +115,25 @@ function putImage(){
   document.append(img)
 }
 
-// FETCH
 function fetchBooks() {
   const books = Adapter.getBooksData()
     .then(books => renderBooks(books))
 }
 
+// RENDER BOOKS ONTO PAGE
 function renderBooks(books) {
-  const mainDiv = document.getElementById("main")
+  // Grab main div
+  const mainDiv = document.getElementById("side-bar")
+
+  // iterate through books promise and create new book instances
   books.forEach(book => {
-    const newBook = new Book(book.title, book.userId)
+
+    // instantiate new book object
+    const newBook = new Book(book.attributes.title, book.relationships.user.data.id)
     const myBook = newBook.render()
+    myBook.dataset.id = book.id
+
+    // append book instances to page
     mainDiv.append(myBook)
   })
 }

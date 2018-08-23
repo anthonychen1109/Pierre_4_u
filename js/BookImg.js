@@ -3,7 +3,9 @@ class BookImg{
     this.userId = userId
     this.bookId = bookId
   }
+
   iAm(){
    console.log('a bookimg')
  }
+ 
 }

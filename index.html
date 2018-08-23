@@ -9,12 +9,51 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
   </head>
   <body>
-    <div>Title</div>
-    <div>Side Bar</div>
-    <div id="main">Main</div>
-    <div id="canvasDiv"></div>
-    <div id="createPNGButton">
-      <button onclick="putImage()">Save as Image</button>
+
+<div>Title</div>
+<div>Side Bar</div>
+<div id="main">Main</div>
+<div id="canvasDiv"></div>
+<div id="createPNGButton">
+  <button onclick="putImage()">Save as Image</button>
+
+    <div class="navbar">
+      <div class="nav-left">
+
+      </div>
+      <div class="nav-center">
+        <img src="./assets/images/pierre.jpg" alt="pierre-logo">
+      </div>
+      <div class="nav-right">
+
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="main" class="main">
+
+      <div class="main-left">
+        <div class="title" id="title">
+          <h2>Your Books:</h2>
+        </div>
+        <div id="side-bar" class="side-bar">
+          <ul id="side-bar-ul">
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-right">
+        <div class="canvas canvas-container">
+          <h1>Canvas</h1>
+          <canvas id="canvas" width="490" height="220">
+
+          </canvas>
+
+        </div>
+      </div>
+
     </div>
 
     <script type="text/javascript" src="./js/index.js"></script>

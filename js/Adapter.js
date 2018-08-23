@@ -3,11 +3,14 @@ class Adapter{
   static async getBooksData(){
     const response = await fetch("http://localhost:3000/books")
     const data = await response.json()
-    return data
+    return data.data
   }
 
-  static async getBookData(){
-
+  static async getBookData(id){
+    const response = await fetch(`http://localhost:3000/books/${id}`)
+    const data = response.json().then(r => r.data)
+    // console.log(data);
+    return data
   }
 
   static async getBookImgsData(){
