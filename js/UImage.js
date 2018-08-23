@@ -17,6 +17,9 @@ class UImage {
    image.classList.add("thumbnail")
    imageTitle.innerText = this.title
    image.src = this.imgUrl
+   image.addEventListener("click", () => {
+     
+   })
    imageDiv.append(imageTitle, image)
    sideBarUl.append(imageDiv)
    return imageDiv
