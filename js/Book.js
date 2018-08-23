@@ -1,4 +1,4 @@
-class Book{
+class Book {
 
   constructor(title, userId){
     this.title = title;
@@ -6,9 +6,9 @@ class Book{
     this.books = []
   }
 
-  iAm(){
-   console.log('a book')
-  }
+  // iAm(){
+  //  console.log('a book')
+  // }
 
   render() {
     const title = document.getElementById("title")
@@ -21,7 +21,7 @@ class Book{
     bookTitle.addEventListener("click", (e) => {
       let id = e.target.parentElement.getAttribute("data-id")
       Adapter.getBookData(id)
-        .then( r => renderBookImages(r.id) )
+        .then( r => this.renderBookImages(r.id) )
     })
 
     bookDiv.append(bookTitle)
@@ -30,8 +30,14 @@ class Book{
   }
 
   renderBookImages(id) {
-    console.log(id);
-    // Adapter.getBookData(id).then(console.log)
+    Adapter.getBookData(id)
+      .then(data => {
+        const newUImage = new UImage(
+          data["relationships"]["u-images"]["data"][0]["title"],
+          data["relationships"]["u-images"]["data"][0]["img-url"])
+        newUImage.renderUImage()
+        }
+      )
   }
 
 }

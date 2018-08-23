@@ -69,11 +69,9 @@ function renderBooks(books) {
 
   // iterate through books promise and create new book instances
   books.forEach(book => {
-    const newTitle = book.attributes.title
-    const userId = book.relationships.user.data.id
 
     // instantiate new book object
-    const newBook = new Book(newTitle, userId)
+    const newBook = new Book(book.attributes.title, book.relationships.user.data.id)
     const myBook = newBook.render()
     myBook.dataset.id = book.id
 
