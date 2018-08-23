@@ -67,4 +67,18 @@
 .categories li div {
   background-color: white; }
 
+.paint-colors {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px; }
+  .paint-colors div {
+    border: 1px solid black;
+    padding: 5px; }
+
+.hidden {
+  display: none; }
+
+.display {
+  display: block; }
+
 /*# sourceMappingURL=styles.css.map */

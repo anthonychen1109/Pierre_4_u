@@ -21,6 +21,20 @@
       </div>
     </div>
 
+    <div class="paint-colors">
+
+      <div class="red hidden color-btn">red</div>
+      <div class="orange hidden color-btn">orange</div>
+      <div class="yellow hidden color-btn">yellow</div>
+      <div class="green hidden color-btn">green</div>
+      <div class="blue hidden color-btn">blue</div>
+      <div class="indigo hidden color-btn">indigo</div>
+      <div class="violet hidden color-btn">violet</div>
+      <div id="paintbrushIcon" class="display">
+        🖌
+      </div>
+    </div>
+
     <hr />
 
     <div id="main" class="main">
@@ -80,5 +94,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- BOOTSTRAP END -->
+    <script type="text/javascript">
+      const paintbrush = document.getElementById("paintbrushIcon")
+      const colorBtns = document.querySelectorAll(".color-btn")
+      paintbrush.addEventListener("click", () => {
+        colorBtns.forEach(colorBtn => {
+          if (colorBtn.classList.contains("hidden")) {
+            colorBtn.classList.remove("hidden")
+          } else {
+            colorBtn.classList.remove("display")
+            colorBtn.classList.add("hidden")
+          }
+        })
+
+      })
+    </script>
   </body>
 </html>
