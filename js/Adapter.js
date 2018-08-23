@@ -34,4 +34,15 @@ class Adapter{
     const data = response.json()
     return data
   }
+
+  static async postUImage(imgObj){
+    const response = await fetch("http://localhost:3000/u_images", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "Application/json"
+      },
+      body: JSON.stringify(imgObj)
+    })
+  }
 }
