@@ -32,9 +32,11 @@
     text-align: center; }
 
 .title {
+  color: red;
   font-family: DJB; }
 
 .bookTitle {
+  color: orange;
   font-family: DJB;
   cursor: pointer; }
   .bookTitle:hover {
@@ -48,5 +50,18 @@
 
 .canvasDiv img {
   width: 100%; }
+
+.categories h2 {
+  color: purple;
+  font-family: DJB; }
+.categories ul {
+  margin-top: 5px; }
+  .categories ul li {
+    color: green;
+    font-family: DJB; }
+    .categories ul li:hover {
+      background-color: #98FB98;
+      cursor: pointer;
+      transition: background-color 0.5s ease; }
 
 /*# sourceMappingURL=styles.css.map */

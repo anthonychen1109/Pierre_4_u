@@ -105,6 +105,7 @@ function init(){
 
 
   fetchBooks()
+  renderCategories()
 }
 
 function putImage(){
@@ -136,4 +137,20 @@ function renderBooks(books) {
     // append book instances to page
     mainDiv.append(myBook)
   })
+}
+
+function renderCategories() {
+  const allLi = document.getElementById("categories").querySelectorAll("li")
+  allLi.forEach(li => li.addEventListener("click", () => {
+    const type = li.id
+    Adapter.getUImagesData().then(categories => {
+      categories.forEach(category => {
+        // console.log(category);
+        const currentCategory = new UImage(category.title, category.imgURL)
+        if (type == category.category) {
+          currentCategory.renderUImage()
+        }
+      })
+    })
+  }))
 }

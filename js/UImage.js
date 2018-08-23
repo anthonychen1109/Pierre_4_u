@@ -30,8 +30,8 @@ class UImage {
    return imageDiv
   }
 
-  // renderOntoCanvas() {
-  //
-  // }
+  renderCategories() {
+    console.log('test');
+  }
 
 }
