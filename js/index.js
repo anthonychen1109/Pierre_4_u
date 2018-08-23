@@ -7,6 +7,31 @@ function init(){
   var clickDrag = new Array();
   var paint;
 
+  var canvasDiv = document.getElementById('canvasDiv');
+  canvas = document.createElement('canvas');
+  canvas.setAttribute('width', canvas.width);
+  canvas.setAttribute('height', canvas.height);
+  canvas.setAttribute('id', 'canvas');
+  canvasDiv.appendChild(canvas);
+
+  canvas.width = 650;
+  canvas.height = 691;
+
+
+  var background = new Image();
+  background.src = "http://t8ls.com/wp-content/uploads/2017/05/stylist-design-goat-animal-coloring-pages-sheet.jpg";
+
+
+
+  if(typeof G_vmlCanvasManager != 'undefined') {
+  	canvas = G_vmlCanvasManager.initElement(canvas);
+  }
+  context = canvas.getContext("2d");
+
+  background.onload = function(){
+    context.drawImage(background,0,0);
+  }
+
   function addClick(x, y, dragging)
   {
     clickX.push(x);
@@ -15,7 +40,7 @@ function init(){
   }
 
   function redraw(){
-    context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+    // context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
 
     context.strokeStyle = "#df4b26";
     context.lineJoin = "round";
@@ -34,18 +59,6 @@ function init(){
     }
   }
 
-
-
-  var canvasDiv = document.getElementById('canvasDiv');
-  canvas = document.createElement('canvas');
-  canvas.setAttribute('width', canvas.width);
-  canvas.setAttribute('height', canvas.height);
-  canvas.setAttribute('id', 'canvas');
-  canvasDiv.appendChild(canvas);
-  if(typeof G_vmlCanvasManager != 'undefined') {
-  	canvas = G_vmlCanvasManager.initElement(canvas);
-  }
-  context = canvas.getContext("2d");
 
   $('#canvas').mousedown(function(e){
     var mouseX = e.pageX - this.offsetLeft;
@@ -71,10 +84,17 @@ function init(){
     paint = false;
   });
 
+
   // fetchBooks()
 }
 
-
+function putImage(){
+  var canvas1 = document.getElementById("canvas");
+  const img = document.createElement("img")
+  img.crossOrigin="anonymous"
+  img.src = canvas.toDataURL("image/png");
+  document.append(img)
+}
 
 // FETCH
 function fetchBooks() {
