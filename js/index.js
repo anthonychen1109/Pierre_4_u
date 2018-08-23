@@ -140,16 +140,16 @@ function renderBooks(books) {
 }
 
 function renderCategories() {
-  const allLi = document.getElementById("categories").querySelectorAll("li")
+  const allLi = document.getElementById("categories").querySelectorAll(".cat-li")
   allLi.forEach(li => li.addEventListener("click", () => {
-    const sideBarUl = document.getElementById("side-bar-ul")
-    sideBarUl.innerHTML = ""
     const type = li.id
+    const catDivs = document.querySelectorAll(`.cat-div`)
+    catDivs.forEach(catDiv => catDiv.innerHTML = "")
     Adapter.getUImagesData().then(uImages => {
       uImages.forEach(uImage => {
         const newUImage = new UImage(uImage.title, uImage.imgURL)
         if (type == uImage.category) {
-          UImage.renderFromImageData(newUImage)
+          UImage.renderFromImageData(newUImage, type)
         }
       })
     })
