@@ -18,6 +18,7 @@ $padding: 10px;
     img {
       max-height: 200px;
     }
+
   }
 }
 
@@ -28,16 +29,25 @@ $padding: 10px;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     min-height: 100vh;
     padding: $padding;
     width: 30%;
+    min-width: 300px;
   }
   .main-right {
     border: 1px solid black;
     min-height: 100vh;
     padding: $padding;
     width: 70%;
+    min-width: 700px;
   }
+  // @media only screen and (max-width: 800px) {
+  //   flex-direction: column;
+  //   .main-left, .main-right {
+  //     width: 100%;
+  //   }
+  // }
 }
 
 .canvas {
@@ -125,4 +135,14 @@ $padding: 10px;
 
 .drop-down {
   margin-right: 10px;
+}
+
+.paint-colors {
+  position: absolute;
+  right: 0;
+  z-index: 999;
+}
+
+#createBook {
+  margin-top: 40px;
 }

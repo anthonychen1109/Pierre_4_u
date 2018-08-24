@@ -21,27 +21,6 @@
       </div>
     </div>
 
-    <div class="paint-colors">
-      <button style=" background:#ffffff; color: #000000;" class="tool-tip display tool-btn" onclick= setLineWidth(1)>To change color, brush size, and add page to your book, click here ⇒</button>
-
-      <select class="hidden tool-btn drop-down"></select>
-
-      <button style=" background:#ffffff; color: #000000;" class="min hidden tool-btn" onclick= setLineWidth(1)>·</button>
-      <button style=" background:#ffffff; color: #000000;" class="med hidden tool-btn" onclick= setLineWidth(5)>●</button>
-      <button style=" background:#ffffff; color: #000000;" class="max hidden tool-btn" onclick= setLineWidth(10)>⬤</button>
-
-      <button style=" background:#d10000; color: #ffffff;" class="red hidden tool-btn" onclick= setBrushColor("#d10000")>red</button>
-      <button style=" background:#ff6622; color: #ffffff;" class="orange hidden tool-btn" onclick= setBrushColor("#ff6622")>orange</button>
-      <button style=" background:#ffda21; color: #ffffff;" class="yellow hidden tool-btn" onclick= setBrushColor("#ffda21")>yellow</button>
-      <button style=" background:#33dd00; color: #ffffff;" class="green hidden tool-btn" onclick= setBrushColor("#33dd00")>green</button>
-      <button style=" background:#1133cc; color: #ffffff;" class="blue hidden tool-btn" onclick= setBrushColor("#1133cc")>blue</button>
-      <button style=" background:#220066; color: #ffffff;" class="indigo hidden tool-btn" onclick= setBrushColor("#220066")>indigo</button>
-      <button style=" background:#330044; color: #ffffff;" class="violet hidden tool-btn" onclick= setBrushColor("#330044")>violet</button>
-      <div id="paintbrushIcon" class="display">
-        🖌
-      </div>
-    </div>
-
     <hr />
 
     <div id="main" class="main">
@@ -83,7 +62,28 @@
       <div class="main-right">
         <div class="canvas canvas-container">
           <h1>Canvas</h1>
+          <div class="paint-colors">
+            <button style=" background:#ffffff; color: #000000;" class="tool-tip display tool-btn" onclick= setLineWidth(1)>To change color, brush size, and add page to your book, click here ⇒</button>
+
+            <select class="hidden tool-btn drop-down"></select>
+
+            <button style=" background:#ffffff; color: #000000;" class="min hidden tool-btn" onclick= setLineWidth(1)>·</button>
+            <button style=" background:#ffffff; color: #000000;" class="med hidden tool-btn" onclick= setLineWidth(5)>●</button>
+            <button style=" background:#ffffff; color: #000000;" class="max hidden tool-btn" onclick= setLineWidth(10)>⬤</button>
+
+            <button style=" background:#d10000; color: #ffffff;" class="red hidden tool-btn" onclick= setBrushColor("#d10000")>red</button>
+            <button style=" background:#ff6622; color: #ffffff;" class="orange hidden tool-btn" onclick= setBrushColor("#ff6622")>orange</button>
+            <button style=" background:#ffda21; color: #ffffff;" class="yellow hidden tool-btn" onclick= setBrushColor("#ffda21")>yellow</button>
+            <button style=" background:#33dd00; color: #ffffff;" class="green hidden tool-btn" onclick= setBrushColor("#33dd00")>green</button>
+            <button style=" background:#1133cc; color: #ffffff;" class="blue hidden tool-btn" onclick= setBrushColor("#1133cc")>blue</button>
+            <button style=" background:#220066; color: #ffffff;" class="indigo hidden tool-btn" onclick= setBrushColor("#220066")>indigo</button>
+            <button style=" background:#330044; color: #ffffff;" class="violet hidden tool-btn" onclick= setBrushColor("#330044")>violet</button>
+            <div id="paintbrushIcon" class="display">
+              🖌
+            </div>
+          </div>
           <div id="canvasDiv">
+
           </div>
           <!-- <div id="createPNGButton">
             <button onclick="putImage()">Save as Image</button>
