@@ -16,15 +16,17 @@ class Book {
     const bookTitle = document.createElement("h3")
     bookTitle.innerText = this.title
     bookTitle.classList.add('bookTitle')
-
+    const bookImages = document.createElement("div")
+    bookImages.classList.add("cat-book")
     // event listener to display images associated with book
     bookTitle.addEventListener("click", (e) => {
       let id = e.target.parentElement.getAttribute("data-id")
+      bookImages.innerHTML = ""
       Adapter.getBookData(id)
         .then( r => this.renderBookImages(r.id) )
     })
 
-    bookDiv.append(bookTitle)
+    bookDiv.append(bookTitle, bookImages)
     title.append(bookDiv)
     return bookDiv
   }
@@ -36,7 +38,7 @@ class Book {
         const newUImage = new UImage(
           data["relationships"]["u-images"]["data"][0]["title"],
           data["relationships"]["u-images"]["data"][0]["img-url"])
-        newUImage.renderUImage()
+        UImage.renderUImage()
         }
       )
   }

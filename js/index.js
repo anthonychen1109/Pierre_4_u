@@ -66,7 +66,7 @@ function createNewBook() {
   const createButton = document.getElementById("createBook")
   const newBookForm = document.querySelector(".bookForm")
   createButton.addEventListener("click", () => {
-
+    newBookForm.innerHTML = ""
     // CAN BE BROKEN OUT INTO ANOTHER FUNCTION, IN THE TIME BEING... WE'LL MAKE SURE IT WORKS IN HERE FIRST
 
     const titleInput = document.createElement("input")
