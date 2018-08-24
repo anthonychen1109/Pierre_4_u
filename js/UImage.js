@@ -10,7 +10,7 @@ class UImage {
  // }
 
  static renderUImage(title, imgUrl, liClass) {
-   let cat = liClass || ""
+   let cat = liClass || "cat-book"
    const sideBarUl = document.getElementById("side-bar-ul")
    const divRender = document.querySelector(`.${cat}`)
    const imageDiv = document.createElement("div")
@@ -35,7 +35,6 @@ class UImage {
   }
 
   static renderFromImageData(imgObj, type) {
-    console.log(type);
     UImage.renderUImage(imgObj.title, imgObj.imgUrl, type)
   }
 
