@@ -24,6 +24,8 @@ class Book {
       bookImages.innerHTML = ""
       Adapter.getBookData(id)
         .then( r => this.renderBookImages(r.id) )
+      const addImage = document.createElement("form")
+
     })
 
     bookDiv.append(bookTitle, bookImages)
@@ -35,10 +37,11 @@ class Book {
   renderBookImages(id) {
     Adapter.getBookData(id)
       .then(data => {
-        const newUImage = new UImage(
-          data["relationships"]["u-images"]["data"][0]["title"],
-          data["relationships"]["u-images"]["data"][0]["img-url"])
-        UImage.renderUImage()
+        // const newUImage = new UImage(
+        //   data["relationships"]["u-images"]["data"][0]["title"],
+        //   data["relationships"]["u-images"]["data"][0]["img-url"])
+        UImage.renderUImage(data["relationships"]["u-images"]["data"][0]["title"],
+        data["relationships"]["u-images"]["data"][0]["img-url"])
         }
       )
   }
