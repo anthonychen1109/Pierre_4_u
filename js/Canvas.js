@@ -22,7 +22,7 @@ function drawCanvas(){
   if(typeof G_vmlCanvasManager != 'undefined') {
     canvas = G_vmlCanvasManager.initElement(canvas);
   }
-  setBrush()
+  resetBrush()
   canvasMouseEvents()
 }
 
@@ -39,7 +39,7 @@ function setBackground(url){
   }
 }
 
-function setBrush(){
+function resetBrush(){
   const canvas = document.getElementById('canvas');
   context = canvas.getContext("2d");
 

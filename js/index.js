@@ -5,7 +5,7 @@ function init(){
 
   drawCanvas()
   setBackground("./assets/images/download.png")
-  setBrush()
+  resetBrush()
   renderBooks()
   renderCategories()
   createNewBook()
