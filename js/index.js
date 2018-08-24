@@ -9,6 +9,8 @@ function init(){
   fetchBooks()
   renderCategories()
   createNewBook()
+  paintToolsCollapse()
+
 }
 
 // function putImage(){
