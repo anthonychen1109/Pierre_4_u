@@ -10,7 +10,6 @@ function init(){
   renderCategories()
   createNewBook()
   paintToolsCollapse()
-
 }
 
 // function putImage(){
@@ -31,7 +30,6 @@ function fetchBooks() {
 function renderBooks() {
   // Grab main div
   fetchBooks().then(books => {
-    console.log(books);
     const mainDiv = document.getElementById("side-bar")
     mainDiv.innerHTML=""
     // iterate through books promise and create new book instances

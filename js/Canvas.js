@@ -49,10 +49,13 @@ function resetBrush(){
 }
 
 function populateSelectBook(){
-  const selectMenu = document.querySelector("#book-list")
+  const selectMenu = document.querySelector(".book-list")
+  console.log(selectMenu)
   fetchBooks().then(books => {
     books.forEach(book => {
-
+      const option = document.createElement("option")
+      option.innerText = `${book.attributes.title}`
+      selectMenu.appendChild(option)
     })
   })
 }
@@ -87,6 +90,7 @@ function paintToolsCollapse(){
     })
 
   })
+  populateSelectBook()
 }
 
 function canvasMouseEvents(){
