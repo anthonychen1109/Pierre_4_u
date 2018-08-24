@@ -6,7 +6,7 @@ function init(){
   drawCanvas()
   setBackground("./assets/images/download.png")
   setBrush()
-  fetchBooks()
+  renderBooks()
   renderCategories()
   createNewBook()
   paintToolsCollapse()
@@ -24,24 +24,27 @@ function init(){
 
 function fetchBooks() {
   const books = Adapter.getBooksData()
-    .then(books => renderBooks(books))
+  return books
 }
 
 // RENDER BOOKS ONTO PAGE
-function renderBooks(books) {
+function renderBooks() {
   // Grab main div
-  const mainDiv = document.getElementById("side-bar")
+  fetchBooks().then(books => {
+    console.log(books);
+    const mainDiv = document.getElementById("side-bar")
+    mainDiv.innerHTML=""
+    // iterate through books promise and create new book instances
+    books.forEach(book => {
 
-  // iterate through books promise and create new book instances
-  books.forEach(book => {
+      // instantiate new book object
+      const newBook = new Book(book.attributes.title, book.relationships.user.data.id)
+      const myBook = newBook.render()
+      myBook.dataset.id = book.id
 
-    // instantiate new book object
-    const newBook = new Book(book.attributes.title, book.relationships.user.data.id)
-    const myBook = newBook.render()
-    myBook.dataset.id = book.id
-
-    // append book instances to page
-    mainDiv.append(myBook)
+      // append book instances to page
+      mainDiv.append(myBook)
+    })
   })
 }
 
@@ -76,12 +79,14 @@ function createNewBook() {
     submitButton.classList.add("btn")
     submitButton.classList.add("btn-success")
     newBookForm.append(titleInput, submitButton)
-    newBookForm.addEventListener("submit", () => {
+    newBookForm.addEventListener("submit", (e) => {
+      e.preventDefault()
       const bookObj = {
         title: titleInput.value,
         user_id: 1
       }
-      Adapter.postBook(bookObj)
+      Adapter.postBook(bookObj).then(() => renderBooks())
+      titleInput.value = ""
     })
   })
 }
