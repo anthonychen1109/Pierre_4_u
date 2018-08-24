@@ -23,13 +23,17 @@
 
     <div class="paint-colors">
 
-      <div class="red hidden color-btn">red</div>
-      <div class="orange hidden color-btn">orange</div>
-      <div class="yellow hidden color-btn">yellow</div>
-      <div class="green hidden color-btn">green</div>
-      <div class="blue hidden color-btn">blue</div>
-      <div class="indigo hidden color-btn">indigo</div>
-      <div class="violet hidden color-btn">violet</div>
+      <button style=" background:#ffffff; color: #000000;" class="red hidden color-btn" onclick= setLineWidth(1)>·</button>
+      <button style=" background:#ffffff; color: #000000;" class="red hidden color-btn" onclick= setLineWidth(5)>●</button>
+      <button style=" background:#ffffff; color: #000000;" class="red hidden color-btn" onclick= setLineWidth(15)>⬤</button>
+
+      <button style=" background:#d10000; color: #ffffff;" class="red hidden color-btn" onclick= setBrushColor("#d10000")>red</button>
+      <button style=" background:#ff6622; color: #ffffff;" class="orange hidden color-btn" onclick= setBrushColor("#ff6622")>orange</button>
+      <button style=" background:#ffda21; color: #ffffff;" class="yellow hidden color-btn" onclick= setBrushColor("#ffda21")>yellow</button>
+      <button style=" background:#33dd00; color: #ffffff;" class="green hidden color-btn" onclick= setBrushColor("#33dd00")>green</button>
+      <button style=" background:#1133cc; color: #ffffff;" class="blue hidden color-btn" onclick= setBrushColor("#1133cc")>blue</button>
+      <button style=" background:#220066; color: #ffffff;" class="indigo hidden color-btn" onclick= setBrushColor("#220066")>indigo</button>
+      <button style=" background:#330044; color: #ffffff;" class="violet hidden color-btn" onclick= setBrushColor("#330044")>violet</button>
       <div id="paintbrushIcon" class="display">
         🖌
       </div>
@@ -86,6 +90,7 @@
     <!--  CLASSES -->
     <script type="text/javascript" src="./js/Adapter.js"></script>
     <script type="text/javascript" src="./js/Book.js"></script>
+    <script type="text/javascript" src="./js/Canvas.js"></script>
     <script type="text/javascript" src="./js/BookImg.js"></script>
     <script type="text/javascript" src="./js/CImage.js"></script>
     <script type="text/javascript" src="./js/UImage.js"></script>
