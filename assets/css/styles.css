@@ -75,11 +75,14 @@
     border: 1px solid black;
     padding: 5px; }
 
-x
+
 .display {
   display: block; }
 
 .hidden {
   display: none; }
 
+.drop-down {
+  margin-right: 10px;
+}
 /*# sourceMappingURL=styles.css.map */
