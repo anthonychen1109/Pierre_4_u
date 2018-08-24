@@ -75,14 +75,19 @@
     border: 1px solid black;
     padding: 5px; }
 
-
 .display {
   display: block; }
 
 .hidden {
   display: none; }
 
+<<<<<<< HEAD
 .book-list {
   margin-right: 10px;
 }
+=======
+.drop-down {
+  margin-right: 10px; }
+
+>>>>>>> 8afd74eca07cf37371a1bb05786e7d5f22c7859a
 /*# sourceMappingURL=styles.css.map */
