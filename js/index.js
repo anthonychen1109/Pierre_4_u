@@ -2,54 +2,56 @@ document.addEventListener('DOMContentLoaded', init)
 
 function init(){
 
-  // context = document.getElementById('canvas').getContext("2d");
-  //
-  // $('#canvas').mousedown(function(e){
-  //   var mouseX = e.pageX - this.offsetLeft;
-  //   var mouseY = e.pageY - this.offsetTop;
-  //
-  //   paint = true;
-  //   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-  //   redraw();
-  // });
-  //
-  // $('#canvas').mouseup(function(e){
-  //   paint = false;
-  // });
-  //
-  // $('#canvas').mouseleave(function(e){
-  //   paint = false;
-  // });
 
-  var clickX = new Array();
-  var clickY = new Array();
-  var clickDrag = new Array();
-  var paint;
+  drawCanvas()
+  setBackground("./assets/images/download.png")
+  fetchBooks()
+  renderCategories()
+}
 
-  var canvasDiv = document.getElementById('canvasDiv');
-  canvas = document.createElement('canvas');
-  canvas.setAttribute('width', canvas.width);
-  canvas.setAttribute('height', canvas.height);
-  canvas.setAttribute('id', 'canvas');
-  canvasDiv.appendChild(canvas);
+  function drawCanvas(){
 
-  canvas.width = 650;
-  canvas.height = 691;
+    const clickX = new Array();
+    const clickY = new Array();
+    const clickDrag = new Array();
+
+    const canvasDiv = document.getElementById('canvasDiv');
+    canvasDiv.innerHTML=""
+    canvas = document.createElement('canvas');
+    canvas.setAttribute('width', canvas.width);
+    canvas.setAttribute('height', canvas.height);
+    canvas.setAttribute('id', 'canvas');
+    canvasDiv.appendChild(canvas);
+
+    canvas.width = 650;
+    canvas.height = 691;
 
 
-  var background = new Image();
-  background.src = "http://t8ls.com/wp-content/uploads/2017/05/stylist-design-goat-animal-coloring-pages-sheet.jpg";
+    if(typeof G_vmlCanvasManager != 'undefined') {
+      canvas = G_vmlCanvasManager.initElement(canvas);
+    }
 
-
-
-  if(typeof G_vmlCanvasManager != 'undefined') {
-  	canvas = G_vmlCanvasManager.initElement(canvas);
+    canvasMouseEvents()
   }
-  context = canvas.getContext("2d");
 
-  background.onload = function(){
-    context.drawImage(background,0,0);
+  function setBackground(url){
+    const canvas = document.getElementById('canvas');
+    context = canvas.getContext("2d");
+
+    const background = new Image();
+    background.src = `${url}`;
+    // background.crossOrigin="anonymous"
+
+    background.onload = function(){
+
+      context.drawImage(background,0,0, 650, 650);
+    }
   }
+
+  function canvasMouseEvents(){
+    const clickX = new Array();
+    const clickY = new Array();
+    const clickDrag = new Array();
 
   function addClick(x, y, dragging)
   {
@@ -69,52 +71,51 @@ function init(){
       context.beginPath();
       if(clickDrag[i] && i){
         context.moveTo(clickX[i-1], clickY[i-1]);
-       }else{
-         context.moveTo(clickX[i]-1, clickY[i]);
-       }
-       context.lineTo(clickX[i], clickY[i]);
-       context.closePath();
-       context.stroke();
+      }else{
+        context.moveTo(clickX[i]-1, clickY[i]);
+      }
+      context.lineTo(clickX[i], clickY[i]);
+      context.closePath();
+      context.stroke();
     }
   }
 
 
-  $('#canvas').mousedown(function(e){
-    var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop;
+    let paint;
 
-     paint = true;
-    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-    redraw();
-  });
 
-  $('#canvas').mousemove(function(e){
-    if(paint){
-      addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+    $('#canvas').mousedown(function(e){
+      var mouseX = e.pageX - this.offsetLeft;
+      var mouseY = e.pageY - this.offsetTop;
+
+      paint = true;
+      addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
       redraw();
-    }
-  });
+    });
 
-  $('#canvas').mouseup(function(e){
-    paint = false;
-  });
+    $('#canvas').mousemove(function(e){
+      if(paint){
+        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        redraw();
+      }
+    });
 
-  $('#canvas').mouseleave(function(e){
-    paint = false;
-  });
+    $('#canvas').mouseup(function(e){
+      paint = false;
+    });
 
+    $('#canvas').mouseleave(function(e){
+      paint = false;
+    });
+  }
 
-  fetchBooks()
-  renderCategories()
-}
-
-function putImage(){
-  var canvas1 = document.getElementById("canvas");
-  const img = document.createElement("img")
-  img.crossOrigin="anonymous"
-  img.src = canvas.toDataURL("image/png");
-  document.append(img)
-}
+// function putImage(){
+//   var canvas1 = document.getElementById("canvas");
+//   const img = document.createElement("img")
+//
+//   console.log("img return", canvas.toDataURL());
+//   // document.append(img)
+// }
 
 function fetchBooks() {
   const books = Adapter.getBooksData()

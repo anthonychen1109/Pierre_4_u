@@ -21,10 +21,12 @@ class UImage {
    image.src = imgUrl
    image.classList.add("quack")
    image.addEventListener("click", (e) => {
-     const canvas = document.querySelector("canvas")
-     const quack = document.getElementById("quack")
-     const canvas1 = canvas.getContext("2d")
-     canvas1.drawImage(image, 0, 0, 650, 691)
+     // const canvas = document.querySelector("canvas")
+     // const quack = document.getElementById("quack")
+     // const canvas1 = canvas.getContext("2d")
+     // canvas1.drawImage(image, 0, 0, 650, 691)
+     drawCanvas()
+     setBackground(`${imgUrl}`)
    })
    imageDiv.append(imageTitle, image)
    // sideBarUl.append(imageDiv)
