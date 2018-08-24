@@ -137,8 +137,15 @@ $padding: 10px;
   position: absolute;
   right: 0;
   z-index: 999;
+  button {
+    font-family: sans-serif;
+  }
 }
 
 #createBook {
   margin-top: 40px;
+}
+
+.tool-tip {
+  font-family: sans-serif;
 }
