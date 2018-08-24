@@ -48,6 +48,15 @@ function resetBrush(){
   context.lineJoin = "round";
 }
 
+function populateSelectBook(){
+  const selectMenu = document.querySelector("#book-list")
+  fetchBooks().then(books => {
+    books.forEach(book => {
+
+    })
+  })
+}
+
 function setBrushColor(hex){
   const canvas = document.getElementById('canvas');
   context = canvas.getContext("2d");
@@ -65,7 +74,9 @@ function setLineWidth(widthInt){
 function paintToolsCollapse(){
   const paintbrushBtn = document.getElementById("paintbrushIcon")
   const toolBtns = document.querySelectorAll(".tool-btn")
+  const toolTip = document.querySelector(".tool-tip")
   paintbrushBtn.addEventListener("click", () => {
+    toolTip.classList.add("hidden")
     toolBtns.forEach(toolBtn => {
       if (toolBtn.classList.contains("hidden")) {
         toolBtn.classList.remove("hidden")
