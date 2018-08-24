@@ -20,7 +20,7 @@
     if(typeof G_vmlCanvasManager != 'undefined') {
       canvas = G_vmlCanvasManager.initElement(canvas);
     }
-
+    setBrush()
     canvasMouseEvents()
   }
 

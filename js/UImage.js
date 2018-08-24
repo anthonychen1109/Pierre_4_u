@@ -14,7 +14,7 @@ class UImage {
    const sideBarUl = document.getElementById("side-bar-ul")
    const divRender = document.querySelector(`.${cat}`)
    const imageDiv = document.createElement("div")
-   const imageTitle = document.createElement("h2")
+   const imageTitle = document.createElement("h4")
    const image = document.createElement("img")
    image.classList.add("thumbnail")
    imageTitle.innerText = title
