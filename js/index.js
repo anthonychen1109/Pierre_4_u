@@ -106,6 +106,7 @@ function init(){
 
   fetchBooks()
   renderCategories()
+  createNewBook()
 }
 
 function putImage(){
@@ -154,4 +155,28 @@ function renderCategories() {
       })
     })
   }))
+}
+
+function createNewBook() {
+  const createButton = document.getElementById("createBook")
+  const newBookForm = document.querySelector(".bookForm")
+  createButton.addEventListener("click", () => {
+
+    // CAN BE BROKEN OUT INTO ANOTHER FUNCTION, IN THE TIME BEING... WE'LL MAKE SURE IT WORKS IN HERE FIRST
+
+    const titleInput = document.createElement("input")
+    titleInput.placeholder = "Book Title:"
+    const submitButton = document.createElement("button")
+    submitButton.innerText = "Submit"
+    submitButton.classList.add("btn")
+    submitButton.classList.add("btn-success")
+    newBookForm.append(titleInput, submitButton)
+    newBookForm.addEventListener("submit", () => {
+      const bookObj = {
+        title: titleInput.value,
+        user_id: 1
+      }
+      Adapter.postBook(bookObj)
+    })
+  })
 }

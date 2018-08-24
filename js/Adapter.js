@@ -13,6 +13,19 @@ class Adapter{
     return data
   }
 
+  static async postBook(newBookObj) {
+    const response = await fetch("http://localhost:3000/books", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "Application/json"
+      },
+      body: JSON.stringify(newBookObj)
+    })
+    console.log(response);
+    return response.json()
+  }
+
   static async getBookImgsData(){
 
   }
